@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rowdies", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background: #fff;
+    color: #000000;
+    display: inline;
+    justify-content: center;
+    height: 100vh;
+}
+
+#app {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    text-align: center;
+}
+
+.dashboard h1 {
+    text-align: start;
+    position: relative;
+    top: 20px;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+.summary {
+    display: flex;  
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-image: url(bg.png);
+    background-size: cover;
+    flex: 1;
+    margin: 5px;
+    padding: 15px;
+    height: 20vh;
+    width: 40vw;
+    border-radius: 8px;
+    text-align: start;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    font-size: 1.3em;
+}
+
+.card span {
+    font-size: 1.8em;
+    font-weight: lighter;
+}
+
+.task-list {
+    justify-self: center;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+    max-width: 90vw;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid #000000;
+    margin-bottom: 20px;
+}
+
+.task-list h2 {
+    font-size: 1.4em;
+}
+
+.add-task {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.add-task div {
+    display: flex;
+    gap: 10px;
+}
+
+.add-task input,
+.add-task select {
+    flex: 1;
+    border: 2px solid rgba(94, 219, 104, 0.362);
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    border-radius: 0.25em;
+    background: transparent;
+    transition: all 0.1s;
+}
+
+.add-task input[type="date"]:not(.has-value)::before {
+    color: rgb(0, 0, 0);
+    content: attr(placeholder);
+}
+
+.add-task button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #82cb82;
+    color: white;
+    border: none;
+}
+
+/* Your existing CSS styles */
+
+.task-card {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: start;
+    overflow-wrap: break-word;
+    border-left: 5px solid;
+    position: relative;
+}
+
+.border-easy {
+    border-left-color: #82cb82;
+}
+
+.border-medium {
+    border-left-color: #fc8c6b;
+}
+
+.border-hard {
+    border-left-color: #ba65c9;
+}
+
+.importance-high {
+    color: red;
+}
+
+.importance-medium {
+    color: orange;
+}
+
+.importance-low {
+    color: green;
+}
+
+.status-select {
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.delete-task-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: red;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.delete-task-btn:hover {
+    color: darkred;
+}
+textarea#task-details {
+    width: 100%;
+    height: 60px;
+    border: 2px solid rgba(94, 219, 104, 0.362);
+    padding: 10px;
+    border-radius: 0.25em;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    transition: all 0.1s;
+}
+
+@media (max-width: 600px) {
+    .summary {
+        display: grid;  
+        row-gap: 10px;
+        column-gap: 10px;
+        margin-bottom: 20px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.in-progress {
+    background-color: #908cfd;
+}
+
+.on-hold {
+    background-color: #fc8c6b;
+}
+
+.in-review {
+    background-color: #ba65c9;
+}
+
+.completed {
+    background-color: #82cb82;
+}
