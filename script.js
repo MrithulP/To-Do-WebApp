@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskCard = document.createElement('div');
         taskCard.className = `task-card border-${task.difficulty.toLowerCase()}`;
         taskCard.dataset.id = task.id;
-
+    
         taskCard.innerHTML = `
             <h3>${task.taskName}</h3>
             <p><strong>Importance:</strong> <span class="importance-${task.importance.toLowerCase()}">${task.importance}</span></p>
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </select>
             <button class="delete-task-btn" onclick="confirmDeleteTask(${task.id})">&times;</button>
         `;
-
+    
         tasksContainer.appendChild(taskCard);
         updateTaskListHeading();
     }
