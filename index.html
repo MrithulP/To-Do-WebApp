@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bokor&family=Lobster&family=Permanent+Marker&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <div class="title-container">
+            <h1>To-Do App</h1>
+        </div>
+        
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <h1>Dashboard</h1>
+            <div class="summary">
+                <div class="card in-progress"><span id="in-progress-count">0</span> <br>In Progress: </div>
+                <div class="card in-review"><span id="in-review-count">0</span> <br>Pending: </div>
+                <div class="card on-hold"><span id="on-hold-count">0</span> <br>On Hold: </div>
+                <div class="card completed"><span id="completed-count">0</span> <br>Completed: </div>
+
+            </div>
+        </div>
+        <button id="show-add-task-btn" class="show-add-task-btn">+ Add Task</button>
+        <div id="add-task-container" class="add-task-container" style="display: none;">
+            <h2>Add Task</h2>
+            <div class="add-task">
+                <div>
+                    <input type="text" id="task-name" placeholder="Task Name" required>
+                    <select id="importance">
+                        <option value="" disabled selected>Importance</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="difficulty">
+                        <option value="" disabled selected>Difficulty</option>
+                        <option value="hard">Hard</option>
+                        <option value="medium">Medium</option>
+                        <option value="easy">Easy</option>
+                    </select>
+                    <input type="date" id="due-date" placeholder="Due Date" onchange="this.className=(this.value!=''?'has-value':'')">
+                </div>
+                <div>
+                    <textarea id="task-details" placeholder="Task Details" rows="3"></textarea>
+                </div>
+                <button id="add-task-btn">Add Task</button>
+            </div>
+        </div>
+        <div id="popup-message" class="popup">
+            <div class="popup-content">
+                <p id="popup-text"></p>
+                <button id="popup-close-btn">Close</button>
+            </div>
+        </div>
+        
+        <div id="confirm-delete" class="popup">
+            <div class="popup-content">
+                <p id="confirm-delete-text">Do you want to mark this task as completed before deleting?</p>
+                <button id="confirm-delete-yes">Yes</button>
+                <button id="confirm-delete-no">No</button>
+            </div>
+        </div>
+        
+        <h2 id="task-list-heading" style="display: none;">Task List</h2>
+        <div id="tasks-container"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
