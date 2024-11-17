@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,10 +68,14 @@
         <div id="confirm-delete" class="popup">
             <div class="popup-content">
                 <p id="confirm-delete-text">Do you want to mark this task as completed before deleting?</p>
-                <button id="confirm-delete-yes">Yes</button>
-                <button id="confirm-delete-no">No</button>
+                <div style="display: flex; gap: 10px;">
+                    <button id="confirm-delete-yes">Yes</button>
+                    <button id="confirm-delete-no">No</button>
+                </div>
+                <button id="popup-cancel-btn" style="margin-top: 10px;">Cancel</button>
             </div>
         </div>
+        
         
         <h2 id="task-list-heading" style="display: none;">Task List</h2>
         <div id="tasks-container"></div>
