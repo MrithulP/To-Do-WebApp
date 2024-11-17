@@ -254,7 +254,7 @@ textarea#task-details {
     background-repeat: no-repeat;
 }
 
-.on-hold {
+.total-completed {
     background-color: #fc8c6b;
     background-image: url(bg.png);
     background-size: cover;
