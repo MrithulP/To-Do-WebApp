@@ -1,7 +1,7 @@
 {
   "name": "To-Do App",
   "short_name": "To-Do",
-  "start_url": "/index.html?utm_source=homescreen",
+  "start_url": "/To-Do-WebApp/index.html?utm_source=homescreen",
   "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
