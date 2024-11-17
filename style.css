@@ -344,3 +344,14 @@ textarea#task-details {
     border: none;
     border-radius: 8px;
 }
+
+.difficulty-hard {
+    color: #FF5252;
+}
+
+.difficulty-medium {
+    color: #FFAB40; 
+}
+
+.difficulty-low {
+    color: #69F0AE;
