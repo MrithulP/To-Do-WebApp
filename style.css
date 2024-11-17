@@ -356,3 +356,7 @@ textarea#task-details {
 .difficulty-easy {
     color: #69F0AE;
 }
+
+.popup.btn-flex{
+    display: flex;
+}
