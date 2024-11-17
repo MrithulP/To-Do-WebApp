@@ -27,6 +27,32 @@ document.addEventListener('DOMContentLoaded', () => {
         showAddTaskButton.style.display = 'none';
     });
 
+    const popupCancelBtn = document.getElementById('popup-cancel-btn');
+    popupCancelBtn.addEventListener('click', () => {
+        confirmDeletePopup.style.display = 'none';
+    });
+
+    function confirmDeleteTask(taskId) {
+        taskIdToDelete = taskId;
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        const task = tasks.find(task => task.id === taskId);
+        if (task.status !== 'completed') {
+            confirmDeletePopup.style.display = 'block';
+            confirmDeleteYesBtn.onclick = () => {
+                updateTaskStatus(taskId, 'completed');
+                deleteTask(taskId);
+                confirmDeletePopup.style.display = 'none';
+            };
+            confirmDeleteNoBtn.onclick = () => {
+                deleteTask(taskId);
+                confirmDeletePopup.style.display = 'none';
+            };
+        } else {
+            deleteTask(taskId);
+        }
+    }
+
+
     // Load tasks from localStorage
     loadTasks();
     detailsInput.addEventListener('keydown', function (e) {
@@ -152,7 +178,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function closePopup() {
         popupMessage.style.display = 'none';
     }
-
     function confirmDeleteTask(taskId) {
         taskIdToDelete = taskId;
         let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
